@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>react-native on AngryNerd.in</title>
+    <link>https://www.angrynerd.in/tags/react-native/</link>
+    <description>Recent content in react-native on AngryNerd.in</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Oct 2018 00:03:29 +0530</lastBuildDate>
+    
+	<atom:link href="https://www.angrynerd.in/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Supercharging your React Native development workflow</title>
+      <link>https://www.angrynerd.in/posts/supercharging-your-react-native-development-workflow/</link>
+      <pubDate>Wed, 10 Oct 2018 00:03:29 +0530</pubDate>
+      
+      <guid>https://www.angrynerd.in/posts/supercharging-your-react-native-development-workflow/</guid>
+      <description>Shake that! Opening up the developer menu in mobile during development is no easy feat. Much like what Will Smith had to do, except much more tedious is the gesture “Shake that”. A member of my team then gave the idea of sending the development option command through adb — and as expected adb shell input keyevent 82 quickly opens the development menu and reload is a jiffy!
+So wait, I need to switch from my editor/IDE to my terminal, and use this command.</description>
+    </item>
+    
+  </channel>
+</rss>

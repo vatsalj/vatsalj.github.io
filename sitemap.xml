@@ -26,13 +26,19 @@
   </url>
   
   <url>
-    <loc>https://www.angrynerd.in/tags/asdf1/</loc>
+    <loc>https://www.angrynerd.in/tags/coding/</loc>
     <lastmod>2018-10-10T00:03:29+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://www.angrynerd.in/tags/qwetr/</loc>
+    <loc>https://www.angrynerd.in/tags/efficiency/</loc>
+    <lastmod>2018-10-10T00:03:29+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.angrynerd.in/tags/react-native/</loc>
     <lastmod>2018-10-10T00:03:29+05:30</lastmod>
     <priority>0</priority>
   </url>
