@@ -6,9 +6,28 @@
     <description>Recent content in Tags on AngryNerd.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Wed, 10 Oct 2018 00:03:29 +0530</lastBuildDate>
     
 	<atom:link href="https://www.angrynerd.in/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>asdf1</title>
+      <link>https://www.angrynerd.in/tags/asdf1/</link>
+      <pubDate>Wed, 10 Oct 2018 00:03:29 +0530</pubDate>
+      
+      <guid>https://www.angrynerd.in/tags/asdf1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qwetr</title>
+      <link>https://www.angrynerd.in/tags/qwetr/</link>
+      <pubDate>Wed, 10 Oct 2018 00:03:29 +0530</pubDate>
+      
+      <guid>https://www.angrynerd.in/tags/qwetr/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

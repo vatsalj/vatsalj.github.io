@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AngryNerd.in</title>
-    <link>https://www.angrynerd.in/</link>
-    <description>Recent content on AngryNerd.in</description>
+    <title>Posts on AngryNerd.in</title>
+    <link>https://www.angrynerd.in/posts/</link>
+    <description>Recent content in Posts on AngryNerd.in</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 10 Oct 2018 00:03:29 +0530</lastBuildDate>
     
-	<atom:link href="https://www.angrynerd.in/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.angrynerd.in/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

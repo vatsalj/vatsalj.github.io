@@ -4,16 +4,41 @@
   
   <url>
     <loc>https://www.angrynerd.in/</loc>
+    <lastmod>2018-10-10T00:03:29+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.angrynerd.in/posts/</loc>
+    <lastmod>2018-10-10T00:03:29+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.angrynerd.in/posts/supercharging-your-react-native-development-workflow/</loc>
+    <lastmod>2018-10-10T00:03:29+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.angrynerd.in/tags/</loc>
+    <lastmod>2018-10-10T00:03:29+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.angrynerd.in/tags/asdf1/</loc>
+    <lastmod>2018-10-10T00:03:29+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.angrynerd.in/tags/qwetr/</loc>
+    <lastmod>2018-10-10T00:03:29+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://www.angrynerd.in/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.angrynerd.in/tags/</loc>
     <priority>0</priority>
   </url>
   
