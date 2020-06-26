@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>python on AngryNerd.in</title>
+    <link>https://www.angrynerd.in/tags/python/</link>
+    <description>Recent content in python on AngryNerd.in</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 10 Oct 2018 00:03:29 +0530</lastBuildDate>
+    
+	<atom:link href="https://www.angrynerd.in/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Comprehensions in Python: The hard way</title>
+      <link>https://www.angrynerd.in/posts/comprehensions-in-python-the-hard-way/</link>
+      <pubDate>Wed, 10 Oct 2018 00:03:29 +0530</pubDate>
+      
+      <guid>https://www.angrynerd.in/posts/comprehensions-in-python-the-hard-way/</guid>
+      <description>&amp;lt;rant&amp;gt;
+The internet has exactly a gazillion articles on what python comprehensions are, what their use cases are, and the fact that they are faster1. Most of them go as far as saying they&amp;rsquo;re Advanced Python features, along with map, lambda etc. How can you freaking say that about built-in, well documented feature of one of the most popular languages of the current time? I mean just how??</description>
+    </item>
+    
+  </channel>
+</rss>

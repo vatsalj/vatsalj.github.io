@@ -12,12 +12,22 @@
     
     
     <item>
+      <title>Comprehensions in Python: The hard way</title>
+      <link>https://www.angrynerd.in/posts/comprehensions-in-python-the-hard-way/</link>
+      <pubDate>Wed, 10 Oct 2018 00:03:29 +0530</pubDate>
+      
+      <guid>https://www.angrynerd.in/posts/comprehensions-in-python-the-hard-way/</guid>
+      <description>&amp;lt;rant&amp;gt;
+The internet has exactly a gazillion articles on what python comprehensions are, what their use cases are, and the fact that they are faster1. Most of them go as far as saying they&amp;rsquo;re Advanced Python features, along with map, lambda etc. How can you freaking say that about built-in, well documented feature of one of the most popular languages of the current time? I mean just how??</description>
+    </item>
+    
+    <item>
       <title>Supercharging your React Native development workflow</title>
       <link>https://www.angrynerd.in/posts/supercharging-your-react-native-development-workflow/</link>
       <pubDate>Wed, 10 Oct 2018 00:03:29 +0530</pubDate>
       
       <guid>https://www.angrynerd.in/posts/supercharging-your-react-native-development-workflow/</guid>
-      <description>Shake that! Opening up the developer menu in mobile during development is no easy feat. Much like what Will Smith had to do, except much more tedious is the gesture “Shake that”. A member of my team then gave the idea of sending the development option command through adb — and as expected adb shell input keyevent 82 quickly opens the development menu and reload in a jiffy!
+      <description>Shake that! Opening up the developer menu in mobile during development is no easy feat. Much like what Will Smith had to do, except much more tedious is the gesture “Shake that”. A member of my team then gave the idea of sending the development option command through adb — and as expected adb shell input keyevent 82 quickly opens the development menu and reload is a jiffy!
 So wait, I need to switch from my editor/IDE to my terminal, and use this command.</description>
     </item>
     
