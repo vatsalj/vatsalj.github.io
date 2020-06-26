@@ -200,11 +200,11 @@
 
 <p>All of this might not make sense right away, so bear with me here. Let&rsquo;s remember the fact that function calls add significant overhead<sup><a href="/posts/comprehensions-in-python-the-hard-way/#ref-2">2</a></sup>. The first call function is the call to get the evaluate range, so let&rsquo;s ignore that as it&rsquo;ll stay the same across different test subjects. There are a couple of things you need to look at here:</p>
 
-<h1 id="at-instruction-address-2-there-s-the-variable-la-ints-is-initialized">At instruction address 2, there&rsquo;s the variable la_ints is initialized</h1>
-
-<h1 id="at-instruction-address-14-is-where-the-real-fun-begins-it-s-where-the-for-loop-executes-between-addresses-18-to-34">At instruction address 14, is where the real fun begins: it&rsquo;s where the for loop executes (between addresses 18 to 34)</h1>
-
-<h1 id="at-instruction-address-18-the-vairbla-la-ints-is-loaded-followed-by-it-s-method-append-at-address-20">At instruction address 18, the vairbla la_ints is loaded followed by it&rsquo;s method append at address 20</h1>
+<ul>
+<li>At instruction address 2, there&rsquo;s the variable <code>la_ints</code> is initialized</li>
+<li>At instruction address 14, is where the real fun begins: it&rsquo;s where the for loop executes (between addresses 18 to 34)</li>
+<li>At instruction address 18, the vairbla la_ints is loaded followed by it&rsquo;s method append at address 20</li>
+</ul>
 
 <p>Basically, while executing line 8, through the range chosen, the function has to load the variable followed by it&rsquo;s <code>append</code> method - this is the effort our loop is doing during all the iterations to fully qualify our append method for the list. We can obviously cache the append method, but unfortunately, it doesn&rsquo;t scale well for large for loops. I do talk about this approach <a href="/posts/comprehensions-in-python-the-hard-way/#ref-3">here</a>.</p>
 
@@ -242,13 +242,36 @@
         <span class="o">&gt;&gt;</span>   <span class="mi">18</span> <span class="n">RETURN_VALUE</span></code></pre></div>
 <p>As you see we still have a for loop, just like the basic approach - but there&rsquo;s no temporary variable, no method resolution for append method. Add to that the fact that there&rsquo;s lesser stack management (no <code>POP_TOP</code>, <code>POP_BLOCK</code> etc.) since there&rsquo;s a single scope. We save up on little memory too, since there&rsquo;s no temporary variable involved now - but it does help when you have a more complicated list of elements. The real fun happens at instruction 14 here - our CPython interpreter uses in the <a href="https://github.com/python/cpython/blob/3.8/Objects/listobject.c#L349">built-in low-level optimized function call to C</a>.</p>
 
-<h2 id="speed-comparisons">Speed comparisons</h2>
+<h1 id="speed-comparisons">Speed comparisons</h1>
 
 <p>With all the disassembly we&rsquo;ve done here - it begs the question. How much of a difference does it really make? Here&rsquo;s a simple timeit comparison of the runtimes side-by-side.</p>
 
 <p><img src="/img/python-comprehensions/timing-comparison.png" alt="" /></p>
 
+<h1 id="cranking-it-up-a-notch-memory">Cranking it up a notch: Memory</h1>
+
+<p>Yes, the advanced ain&rsquo;t over yet! We&rsquo;ve just seen why list comprehensions are fun and faster! Unfortunately, the approaches above will definitely lead to memory leaks when you&rsquo;re working with complex objects and bigger datasets. If you&rsquo;re working on a data science application, this is definitely gonna drive your infrastructure bills since you&rsquo;ll need to have enough memory for processing them objects. For the experienced folks out there, you know where we&rsquo;re going - it&rsquo;s time to generate (:D) better solutions.</p>
+
+<p>I present to you, generator expessions:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_generated_fun</span><span class="p">():</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    A function that returns a generator for a list of integers based on another list
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">))</span></code></pre></div>
+<p>What this returns to you is a generator, which is a function that returns an iterator - basically something you can loop over. If you&rsquo;re not familiar with generators, I urge you to read up on them - it&rsquo;s an important tool to have in your arsenal.</p>
+
+<p>Just another small tidbit before I wrap this up, list comprehensions are syntactic sugars for generator expressions wrapped in a list. Basically,</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">la_ints</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">le_ints</span><span class="p">]</span></code></pre></div>
+<p>is equivalent to</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">la_ints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">le_ints</span><span class="p">)</span></code></pre></div>
 <h1 id="references">References</h1>
+
+<ol>
+<li><a href="https://docs.python.org/3.8/library/dis.html#bytecodes">https://docs.python.org/3.8/library/dis.html#bytecodes</a></li>
+<li><a href="http://www.goldsborough.me/python/low-level/2016/10/04/00-31-30-disassembling_python_bytecode/">Disassember deep-dive</a></li>
+</ol>
+
+<h1 id="appendix">Appendix</h1>
 
 <ol>
 <li><p><a name="ref-1"></a> As a sidenote, 81.52% of facts on the internet are also false</p></li>
