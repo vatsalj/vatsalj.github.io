@@ -17,8 +17,7 @@
       <pubDate>Wed, 10 Oct 2018 00:03:29 +0530</pubDate>
       
       <guid>https://www.angrynerd.in/posts/supercharging-your-react-native-development-workflow/</guid>
-      <description>Shake that! Opening up the developer menu in mobile during development is no easy feat. Much like what Will Smith had to do, except much more tedious is the gesture “Shake that”. A member of my team then gave the idea of sending the development option command through adb — and as expected adb shell input keyevent 82 quickly opens the development menu and reload is a jiffy!
-So wait, I need to switch from my editor/IDE to my terminal, and use this command.</description>
+      <description>Shake that! Opening up the developer menu in mobile during react native development is no easy feat. Much like what Will Smith had to do, except much more tedious is the gesture “Shake that”. One of my team members gave the idea of sending the development option command through adb — and as expected running adb shell input keyevent 82 in terminal quickly opens the development menu and reloading the app becomes an easier job.</description>
     </item>
     
   </channel>
