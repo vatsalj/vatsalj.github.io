@@ -7,7 +7,7 @@
 
     <meta name="author" content="Vatsal Juneja">
     <meta name="description" content="https://www.angrynerd.in/">
-    <meta name="keywords" content="blog,developer,personal">
+    <meta name="keywords" content="blog,developer,personal,python,coding">
     
     <meta property="og:site_name" content="AngryNerd.in">
     <meta property="og:title" content="
@@ -45,6 +45,9 @@
 
     
 
+    <script data-ad-client="ca-pub-6607373063940047" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <meta name="propeller" content="a31334bbbe7f1d34b740c0cebc0eca45">
+
     <meta name="generator" content="Hugo 0.55.6" />
   </head>
 
@@ -79,7 +82,7 @@
   <article>
     <header>
       <h1 class="title">Comprehensions in Python: The hard way</h1>
-      <h2 class="date">June 26, 2020</h2>
+      <h2 class="date">November 23, 2019</h2>
 
       
     </header>
@@ -93,14 +96,24 @@
 
 <p>The internet has exactly a gazillion articles on what python comprehensions are, what their use cases are, and the fact that they are faster<sup><a href="/posts/comprehensions-in-python-the-hard-way/#ref-1">1</a></sup>. Most of them go as far as saying they&rsquo;re Advanced Python features, along with map, lambda etc. How can you freaking say that about built-in, well documented feature of one of the most popular languages of the current time? I mean just how??</p>
 
-<p><img src="/img/innerpeace.gif" alt="innerpeace" /></p>
+
+
+
+<div class="center">
+  <img
+    src="/img/innerpeace.gif"
+    alt="Inner Peace"
+    decoding="async"
+  />
+</div>
+
 
 <p>But&hellip; I digress. Coming back to the topic at hand, I&rsquo;ve unfortunately, I&rsquo;ve found exactly zero articles on why these are faster than the standard Python loops.</p>
 
 <p>&lt;/rant&gt;</p>
 </blockquote>
 
-<p>So, adding my hopefully better thoughts to the sea of those gazillion articles, let&rsquo;s deep dive into whatever the hell they are. I&rsquo;m just going to cover the very basic of a list comprehension - if you understand everything towards the end of this article, you&rsquo;re smart enough to write your own code and wouldn&rsquo;t need me to give you how it works for flattening 2D arrays etc..</p>
+<p>So, adding my hopefully better thoughts to the sea of those gazillion articles, let&rsquo;s deep dive into whatever the hell they are. I&rsquo;m just going to cover the basics of a list comprehension with a couple of use-cases and then deep-dive into dissecting the code. If you understand everything towards the end of this article, I&rsquo;m sure you&rsquo;ll be able to write complex comprehensions. If not, please feel free to comment and I&rsquo;ll be happy to help you out!</p>
 
 <h1 id="introduction-whatever-the-hell-are-comprehensions">Introduction: Whatever the hell are comprehensions</h1>
 
@@ -120,7 +133,17 @@
 
 <p>We&rsquo;re working with one of the <em>most popular languages of the century</em>, which begs the conclusion that</p>
 
-<p><img src="/img/better-way.gif" alt="There's gotta be a better way!" title="There's gotta be a better way!" /></p>
+
+
+
+<div class="center">
+  <img
+    src="/img/better-way.gif"
+    alt="There&#39;s gotta be a better way!"
+    decoding="async"
+  />
+</div>
+
 
 <p>And there is Joey! And here it is, the lovely list comprehension:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">la_ints</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">le_ints</span><span class="p">]</span></code></pre></div>
@@ -139,7 +162,7 @@
 <h3 id="flattening-a-2d-array">Flattening a 2D array</h3>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">flat_earth_society</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">source_2d_array</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">j</span><span class="p">]</span></code></pre></div>
 <h3 id="transposing-a-2d-matrix">Transposing a 2D matrix</h3>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">transposed_matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">source_2d_ints</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">source_2d_ints</span><span class="p">))]</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">transponster</span> <span class="o">=</span> <span class="p">[[</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">source_2d_ints</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">source_2d_ints</span><span class="p">))]</span></code></pre></div>
 <h1 id="that-s-all-cool-but-why-are-they-faster">That&rsquo;s all cool, but why are they faster?</h1>
 
 <p>Let&rsquo;s get the very obvious bits out of the way - comprehensions are NOT simple syntactic sugars. This fact should be crystal clear since you now know they&rsquo;re faster, which implies they work differently behind the scenes. If you don&rsquo;t know this already, python is built on top of C - the language most of computer science graduates learn in their sophomore year. C itself is a lot faster than Python due to a myriad of reasons (which is out of scope of this blog). Coming back, the short answer to why comprehensions are faster is simple - using list comprehensions pushes the loop execution from the Python interpreter into compiled C code. Let&rsquo;s see how exactly that happens - time to actually talk about the actual advanced stuff. We&rsquo;ll be using the Python bytecode disassembler <code>dis</code>.</p>
@@ -153,15 +176,32 @@
 <h3 id="the-basic-implementation">The basic implementation</h3>
 
 <p>This is the basic implementation using a boring old for loop - nothing too crazy so far.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_basic_fun</span><span class="p">():</span>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_basic_fun</span><span class="p">():</span>
     <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    A basic function that creates a list of integers using another list.
-</span><span class="s2">    Appends 1 to all the integers using a basic for loop
+</span><span class="s2">    Adds 1 to all the integers using a basic for loop
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">la_ints</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">):</span>
         <span class="n">la_ints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">la_ints</span></code></pre></div>
+    <span class="k">return</span> <span class="n">la_ints</span></code></pre></td></tr></table>
+</div>
+</div>
+
 <p>Now, let&rsquo;s looks at the disassembled bits to understand what exactly happens behind the scenes. A quick guide to understand what each column below means:
 1. the line number, for the first instruction of each line
 2. the current instruction, indicated as &ndash;&gt;,
@@ -170,7 +210,36 @@
 5. the operation code name,
 6. operation parameters, and
 7. interpretation of the parameters in parentheses.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">le_basic_fun</span><span class="p">)</span>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">]:</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">le_basic_fun</span><span class="p">)</span>
   <span class="mi">6</span>           <span class="mi">0</span> <span class="n">BUILD_LIST</span>               <span class="mi">0</span>
               <span class="mi">2</span> <span class="n">STORE_FAST</span>               <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
 
@@ -193,7 +262,10 @@
         <span class="o">&gt;&gt;</span>   <span class="mi">34</span> <span class="n">POP_BLOCK</span>
 
   <span class="mi">9</span>     <span class="o">&gt;&gt;</span>   <span class="mi">36</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
-             <span class="mi">38</span> <span class="n">RETURN_VALUE</span></code></pre></div>
+             <span class="mi">38</span> <span class="n">RETURN_VALUE</span></code></pre></td></tr></table>
+</div>
+</div>
+
 <blockquote>
 <p>I&rsquo;ll cover the opcodes relevant to the problem at hand briefly, but if you want to know about all the opcodes, check out the documentation of <a href="https://docs.python.org/3.8/library/dis.html">dis</a> (unintended pun, I promise :D).</p>
 </blockquote>
@@ -201,9 +273,9 @@
 <p>All of this might not make sense right away, so bear with me here. Let&rsquo;s remember the fact that function calls add significant overhead<sup><a href="/posts/comprehensions-in-python-the-hard-way/#ref-2">2</a></sup>. The first call function is the call to get the evaluate range, so let&rsquo;s ignore that as it&rsquo;ll stay the same across different test subjects. There are a couple of things you need to look at here:</p>
 
 <ul>
-<li>At instruction address 2, there&rsquo;s the variable <code>la_ints</code> is initialized</li>
-<li>At instruction address 14, is where the real fun begins: it&rsquo;s where the for loop executes (between addresses 18 to 34)</li>
-<li>At instruction address 18, the vairbla la_ints is loaded followed by it&rsquo;s method append at address 20</li>
+<li>On Line 3 (instruction address 2), there&rsquo;s the variable <code>la_ints</code> is initialized</li>
+<li>On Line 10 (instruction address 14), is where the real fun begins: it&rsquo;s where the for loop executes (between addresses 18 to 34)</li>
+<li>On Line 13 (instruction address 18), the variable <code>la_ints</code> is loaded followed by it&rsquo;s method append on Line 14 / address 20</li>
 </ul>
 
 <p>Basically, while executing line 8, through the range chosen, the function has to load the variable followed by it&rsquo;s <code>append</code> method - this is the effort our loop is doing during all the iterations to fully qualify our append method for the list. We can obviously cache the append method, but unfortunately, it doesn&rsquo;t scale well for large for loops. I do talk about this approach <a href="/posts/comprehensions-in-python-the-hard-way/#ref-3">here</a>.</p>
@@ -213,12 +285,54 @@
 <h2 id="the-list-comprehension-implementation">The list comprehension implementation</h2>
 
 <p>Now, let&rsquo;s look at how list comprehension will work behind the scenes.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_comprehensive_fun</span><span class="p">():</span>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_comprehensive_fun</span><span class="p">():</span>
     <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    A function that creates a list of integers using another list.
-</span><span class="s2">    Appends 1 to all the integers using a list comprehension
+</span><span class="s2">    Adds 1 to all the integers using a list comprehension
 </span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">le_comprehensive_fun</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)]</span></code></pre></td></tr></table>
+</div>
+</div>
+
+<p>And the disassembly of the comprehension
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="p">[</span><span class="mi">8</span><span class="p">]:</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">le_comprehensive_fun</span><span class="p">)</span>
   <span class="mi">6</span>           <span class="mi">0</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">code</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">listcomp</span><span class="o">&gt;</span> <span class="o">...</span><span class="p">)</span>
               <span class="mi">2</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="s1">&#39;le_comprehensive_fun.&lt;locals&gt;.&lt;listcomp&gt;&#39;</span><span class="p">)</span>
               <span class="mi">4</span> <span class="n">MAKE_FUNCTION</span>            <span class="mi">0</span>
@@ -239,12 +353,15 @@
              <span class="mi">12</span> <span class="n">BINARY_ADD</span>
              <span class="mi">14</span> <span class="n">LIST_APPEND</span>              <span class="mi">2</span>
              <span class="mi">16</span> <span class="n">JUMP_ABSOLUTE</span>            <span class="mi">4</span>
-        <span class="o">&gt;&gt;</span>   <span class="mi">18</span> <span class="n">RETURN_VALUE</span></code></pre></div>
+        <span class="o">&gt;&gt;</span>   <span class="mi">18</span> <span class="n">RETURN_VALUE</span></code></pre></td></tr></table>
+</div>
+</div></p>
+
 <p>As you see we still have a for loop, just like the basic approach - but there&rsquo;s no temporary variable, no method resolution for append method. Add to that the fact that there&rsquo;s lesser stack management (no <code>POP_TOP</code>, <code>POP_BLOCK</code> etc.) since there&rsquo;s a single scope. We save up on little memory too, since there&rsquo;s no temporary variable involved now - but it does help when you have a more complicated list of elements. The real fun happens at instruction 14 here - our CPython interpreter uses in the <a href="https://github.com/python/cpython/blob/3.8/Objects/listobject.c#L349">built-in low-level optimized function call to C</a>.</p>
 
 <h1 id="speed-comparisons">Speed comparisons</h1>
 
-<p>With all the disassembly we&rsquo;ve done here - it begs the question. How much of a difference does it really make? Here&rsquo;s a simple timeit comparison of the runtimes side-by-side.</p>
+<p>With all the disassembly we&rsquo;ve done here - it begs the question. How much of a difference does it really make? Here&rsquo;s a simple timeit comparison of the two implementations side-by-side.</p>
 
 <p><img src="/img/python-comprehensions/timing-comparison.png" alt="" /></p>
 
@@ -253,17 +370,32 @@
 <p>Yes, the advanced ain&rsquo;t over yet! We&rsquo;ve just seen why list comprehensions are fun and faster! Unfortunately, the approaches above will definitely lead to memory leaks when you&rsquo;re working with complex objects and bigger datasets. If you&rsquo;re working on a data science application, this is definitely gonna drive your infrastructure bills since you&rsquo;ll need to have enough memory for processing them objects. For the experienced folks out there, you know where we&rsquo;re going - it&rsquo;s time to generate (:D) better solutions.</p>
 
 <p>I present to you, generator expessions:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_generated_fun</span><span class="p">():</span>
+
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_generated_fun</span><span class="p">():</span>
     <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    A function that returns a generator for a list of integers based on another list
 </span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">))</span></code></pre></div>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">))</span></code></pre></td></tr></table>
+</div>
+</div>
+
 <p>What this returns to you is a generator, which is a function that returns an iterator - basically something you can loop over. If you&rsquo;re not familiar with generators, I urge you to read up on them - it&rsquo;s an important tool to have in your arsenal.</p>
 
-<p>Just another small tidbit before I wrap this up, list comprehensions are syntactic sugars for generator expressions wrapped in a list. Basically,</p>
+<p>Just another small tidbit before I wrap this up, you might have the thought that list comprehensions are syntactic sugars for generator expressions wrapped in a list. This is not correct. Basically,</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">la_ints</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">le_ints</span><span class="p">]</span></code></pre></div>
-<p>is equivalent to</p>
+<p>is not equivalent to</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">la_ints</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">le_ints</span><span class="p">)</span></code></pre></div>
+<p>Since the generator expression will use extend method internally to add <a href="https://github.com/python/cpython/blob/3.8/Objects/listobject.c#L928">iterator elements</a>. Check out the disassembly to see how they&rsquo;re different.</p>
+
 <h1 id="references">References</h1>
 
 <ol>
@@ -281,46 +413,105 @@
 <p><img src="/img/python-comprehensions/function-overhead.png" alt="" /></p></li>
 
 <li><p><a name="ref-3"></a> Caching the append method</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">le_mediocre_fun</span><span class="p">():</span>
-    <span class="s2">&#34;&#34;&#34;
-</span><span class="s2">    A function that creates a list of integers using another list.
-</span><span class="s2">    Appends 1 to all the integers using a basic for loop
-</span><span class="s2">    with a cached append function call
-</span><span class="s2">    &#34;&#34;&#34;</span>
-    <span class="n">la_ints</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">la_appender</span> <span class="o">=</span> <span class="n">la_ints</span><span class="o">.</span><span class="n">append</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">):</span>
-        <span class="n">la_appender</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">la_ints</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">le_mediocre_fun</span><span class="p">)</span>
-  <span class="mi">7</span>           <span class="mi">0</span> <span class="n">BUILD_LIST</span>               <span class="mi">0</span>
-              <span class="mi">2</span> <span class="n">STORE_FAST</span>               <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
 
-  <span class="mi">8</span>           <span class="mi">4</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
-              <span class="mi">6</span> <span class="n">LOAD_ATTR</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">append</span><span class="p">)</span>
-              <span class="mi">8</span> <span class="n">STORE_FAST</span>               <span class="mi">1</span> <span class="p">(</span><span class="n">la_appender</span><span class="p">)</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">le_mediocre_fun</span><span class="p">():</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        A function that creates a list of integers using another list.
+</span><span class="s2">        Appends 1 to all the integers using a basic for loop
+</span><span class="s2">        with a cached append function call
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="n">la_ints</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">la_appender</span> <span class="o">=</span> <span class="n">la_ints</span><span class="o">.</span><span class="n">append</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">):</span>
+            <span class="n">la_appender</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">la_ints</span>
+    </code></pre></td></tr></table>
+</div>
+</div>
 
-  <span class="mi">9</span>          <span class="mi">10</span> <span class="n">SETUP_LOOP</span>              <span class="mi">28</span> <span class="p">(</span><span class="n">to</span> <span class="mi">40</span><span class="p">)</span>
-             <span class="mi">12</span> <span class="n">LOAD_GLOBAL</span>              <span class="mi">1</span> <span class="p">(</span><span class="nb">range</span><span class="p">)</span>
-             <span class="mi">14</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
-             <span class="mi">16</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
-             <span class="mi">18</span> <span class="n">GET_ITER</span>
-        <span class="o">&gt;&gt;</span>   <span class="mi">20</span> <span class="n">FOR_ITER</span>                <span class="mi">16</span> <span class="p">(</span><span class="n">to</span> <span class="mi">38</span><span class="p">)</span>
-             <span class="mi">22</span> <span class="n">STORE_FAST</span>               <span class="mi">2</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<p>Here&rsquo;s what the disassembly looks like for this implementation</p>
 
- <span class="mi">10</span>          <span class="mi">24</span> <span class="n">LOAD_FAST</span>                <span class="mi">1</span> <span class="p">(</span><span class="n">la_appender</span><span class="p">)</span>
-             <span class="mi">26</span> <span class="n">LOAD_FAST</span>                <span class="mi">2</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
-             <span class="mi">28</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-             <span class="mi">30</span> <span class="n">BINARY_ADD</span>
-             <span class="mi">32</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
-             <span class="mi">34</span> <span class="n">POP_TOP</span>
-             <span class="mi">36</span> <span class="n">JUMP_ABSOLUTE</span>           <span class="mi">20</span>
-        <span class="o">&gt;&gt;</span>   <span class="mi">38</span> <span class="n">POP_BLOCK</span>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">    <span class="n">In</span> <span class="p">[</span><span class="mi">7</span><span class="p">]:</span> <span class="n">dis</span><span class="o">.</span><span class="n">dis</span><span class="p">(</span><span class="n">le_mediocre_fun</span><span class="p">)</span>
+      <span class="mi">7</span>           <span class="mi">0</span> <span class="n">BUILD_LIST</span>               <span class="mi">0</span>
+                  <span class="mi">2</span> <span class="n">STORE_FAST</span>               <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
 
- <span class="mi">11</span>     <span class="o">&gt;&gt;</span>   <span class="mi">40</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
-             <span class="mi">42</span> <span class="n">RETURN_VALUE</span></code></pre></div></li>
+      <span class="mi">8</span>           <span class="mi">4</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
+                  <span class="mi">6</span> <span class="n">LOAD_ATTR</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">append</span><span class="p">)</span>
+                  <span class="mi">8</span> <span class="n">STORE_FAST</span>               <span class="mi">1</span> <span class="p">(</span><span class="n">la_appender</span><span class="p">)</span>
+
+      <span class="mi">9</span>          <span class="mi">10</span> <span class="n">SETUP_LOOP</span>              <span class="mi">28</span> <span class="p">(</span><span class="n">to</span> <span class="mi">40</span><span class="p">)</span>
+                 <span class="mi">12</span> <span class="n">LOAD_GLOBAL</span>              <span class="mi">1</span> <span class="p">(</span><span class="nb">range</span><span class="p">)</span>
+                 <span class="mi">14</span> <span class="n">LOAD_CONST</span>               <span class="mi">1</span> <span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
+                 <span class="mi">16</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
+                 <span class="mi">18</span> <span class="n">GET_ITER</span>
+            <span class="o">&gt;&gt;</span>   <span class="mi">20</span> <span class="n">FOR_ITER</span>                <span class="mi">16</span> <span class="p">(</span><span class="n">to</span> <span class="mi">38</span><span class="p">)</span>
+                 <span class="mi">22</span> <span class="n">STORE_FAST</span>               <span class="mi">2</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+     <span class="mi">10</span>          <span class="mi">24</span> <span class="n">LOAD_FAST</span>                <span class="mi">1</span> <span class="p">(</span><span class="n">la_appender</span><span class="p">)</span>
+                 <span class="mi">26</span> <span class="n">LOAD_FAST</span>                <span class="mi">2</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                 <span class="mi">28</span> <span class="n">LOAD_CONST</span>               <span class="mi">2</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                 <span class="mi">30</span> <span class="n">BINARY_ADD</span>
+                 <span class="mi">32</span> <span class="n">CALL_FUNCTION</span>            <span class="mi">1</span>
+                 <span class="mi">34</span> <span class="n">POP_TOP</span>
+                 <span class="mi">36</span> <span class="n">JUMP_ABSOLUTE</span>           <span class="mi">20</span>
+            <span class="o">&gt;&gt;</span>   <span class="mi">38</span> <span class="n">POP_BLOCK</span>
+
+     <span class="mi">11</span>     <span class="o">&gt;&gt;</span>   <span class="mi">40</span> <span class="n">LOAD_FAST</span>                <span class="mi">0</span> <span class="p">(</span><span class="n">la_ints</span><span class="p">)</span>
+                 <span class="mi">42</span> <span class="n">RETURN_VALUE</span>
+    <span class="sb">``</span><span class="err">`</span>
+    </code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
-
-<!-- [References](https://www.notion.so/References-112883f554ab44f1a00c720cc04b6a25) -->
 
   </article>
 
